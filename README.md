@@ -2,7 +2,7 @@
 
 Small POC to get sensor data over to an MQTT broker
 
-- sensor doesn't really matter; starting with light sensor for ease
+- humidity/temperature, but remember we can work with anything!
 - wifi enabled
 - time pulled from NTP
 
