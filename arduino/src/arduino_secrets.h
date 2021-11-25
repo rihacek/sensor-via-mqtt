@@ -1,2 +1,2 @@
-#define SECRET_SSID "TempChipAP"
-#define SECRET_PASS "secretpw"
+#define MQTT_USER "asdf"
+#define MQTT_PW "asdf"

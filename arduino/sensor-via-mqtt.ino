@@ -1,7 +1,7 @@
 // secrets
 #include "src/arduino_secrets.h"
-char ssid[] = SECRET_SSID;
-char pass[] = SECRET_PASS;
+const char* mqtt_user = MQTT_USER;
+const char* mqtt_pw = MQTT_PW;
 
 // Serial Peripheral
 #include <SPI.h>
@@ -75,5 +75,5 @@ void loop(){
   Serial.println("% Humidity");
   Serial.println();
 
-  delay(5000);
+  delay(5000); //300000 = 5 mins
 }
