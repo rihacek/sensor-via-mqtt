@@ -26,9 +26,7 @@ const char* MQTT_CLIENT_ID = "bsmnt_computers";
 const char* MQTT_SERVER_IP = "192.168.86.202";
 const uint16_t MQTT_SERVER_PORT = 1883;
 
-const char* MQTT_TOPIC_A = "bsmnt/temperature";
-const char* MQTT_TOPIC_B = "bsmnt/humidity";
-
+const char* MQTT_TOPIC = "bsmnt/temperature";
 
 char daysOfTheWeek[7][12] = {"Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"};
 const long utcOffsetInSeconds = -18000; //UTC -5.00 (-5 * 60 sec in min * 60 min in hr = -18000)
@@ -54,7 +52,7 @@ void publishData(float p_temperature, float p_humidity) {
   Serial.println("");
   char data[200];
   serializeJson(root,data);
-  mqttClient.publish(MQTT_TOPIC_A, data, true);
+  mqttClient.publish(MQTT_TOPIC, data, true);
 }
 
 // function called when a MQTT message arrives
@@ -117,7 +115,6 @@ void loop(){
   Serial.print(".");
   Serial.println(ss);
 
-  //int chk = DHT.read11(DHT11_PIN);
   float h = dht.readHumidity();
   float t = dht.readTemperature(); //Celsius
   float f = dht.readTemperature(true); //Fahrenheit
@@ -139,5 +136,5 @@ void loop(){
     publishData(t, h);
   }
 
-  delay(10000); //300000 = 5 mins
+  delay(300000); //300000 = 5 mins
 }
